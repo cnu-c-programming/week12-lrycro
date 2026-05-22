@@ -8,7 +8,10 @@ int main(int argc, const char* argv[]) {
     FILE* fp = fopen(argv[1], "r");
     const char* target_str = argv[2];
 
-
+    char sentences[1024];
+    while (fgets(sentences, sizeof(sentences), fp)) {
+	if (strstr(sentences, target_str)) printf("%s", sentences);
+    }
     
     fclose(fp);
 }

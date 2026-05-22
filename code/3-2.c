@@ -9,7 +9,12 @@ int main(int argc, const char* argv[]) {
     char buffer[10] = {0};
 
     FILE* fp = fopen(filename, "r");
+    if (fp == NULL) return 0;
 
+    fgets(buffer, sizeof(buffer), fp);
+    fclose(fp);
+
+    printf("%s\n", buffer);
 
     return 0;
 }
